@@ -1,11 +1,15 @@
-﻿using System.Configuration;
+﻿using Microsoft.Extensions.Configuration;
+
 namespace robot_app
 {
     public class Boundary
     {
         public Boundary() {
-            this.MaxX = int.Parse(ConfigurationManager.AppSettings.Get("MaxX"));
-            this.MaxY = int.Parse(ConfigurationManager.AppSettings.Get("MaxY"));
+            var config = new ConfigurationBuilder()
+    .AddJsonFile("appsettings.json")
+    .Build();
+            MaxX = int.Parse(config["MaxX"]);
+           MaxY = int.Parse(config["MaxX"]);
         }
         public int MaxX { get; }
        public int MaxY { get; }

@@ -6,6 +6,7 @@ namespace robot_app
     {
         static void Main(string[] args)
         {
+            var boundary = new Boundary();
             Console.WriteLine("Hello World!");
         }
     }

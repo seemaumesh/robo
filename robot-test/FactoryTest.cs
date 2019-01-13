@@ -1,4 +1,3 @@
-using System;
 using Xunit;
 using robot_app;
 using robot_app.Command;
