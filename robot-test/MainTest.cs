@@ -57,5 +57,7 @@ namespace robot_test
             var robot = new Robot() { Placed = false };
             Assert.False(Program.CheckValidCommand(command, robot));
         }
+
+
     }
 }

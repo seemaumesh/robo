@@ -5,7 +5,7 @@ namespace robot_app.Command
     {
         public Robot Execute(string command, Robot currentRobot)
         {
-            throw new NotImplementedException();
+            return currentRobot;
         }
     }
 }

@@ -7,8 +7,15 @@ namespace robot_app
     {
         static void Main(string[] args)
         {
-            var boundary = new Boundary();
-            Console.WriteLine("Hello World!");
+            var robot = new Robot();
+            while (true) {
+                Console.WriteLine("Input command");
+                var line = Console.ReadLine();
+                Console.WriteLine(line);
+                if(line == "exit") {
+                    break;
+                }
+            }
         }
 
         public static bool CheckBoundary(Robot current)
@@ -20,5 +27,7 @@ namespace robot_app
 
         public static bool CheckValidCommand(ICommand command, Robot current) 
         =>  (command.GetType() == typeof(PlaceCommand) && !current.Placed) || current.Placed;
+
+
     }
 }
