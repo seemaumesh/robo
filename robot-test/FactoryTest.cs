@@ -20,10 +20,17 @@ namespace robot_test
         }
 
         [Fact]
-        public void RotateTest()
+        public void LeftTest()
         {
             var factory = new InputFactory();
-            Assert.IsType<RotateCommand>(factory.GetCommand("Rotate"));
+            Assert.IsType<LeftCommand>(factory.GetCommand("Left"));
+        }
+
+        [Fact]
+        public void RightTest()
+        {
+            var factory = new InputFactory();
+            Assert.IsType<RightCommand>(factory.GetCommand("Right"));
         }
 
 

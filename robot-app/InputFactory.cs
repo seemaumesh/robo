@@ -7,15 +7,18 @@ namespace robot_app
        public ICommand GetCommand(string command)
         {
             string firstInstance = command?.Split(" ")[0];
+            firstInstance = firstInstance.ToLower();
 
             switch (firstInstance) {
-                case "Place":
+                case "place":
                     return new PlaceCommand();
-                case "Rotate":
-                    return new RotateCommand();
-                case "Move":
+                case "left":
+                    return new LeftCommand();
+                case "right":
+                    return new RightCommand();
+                case "move":
                     return new MoveCommand();
-                case "Report":
+                case "report":
                     return new ReportCommand();
                 default:
                     return new InvalidCommand();
