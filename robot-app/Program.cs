@@ -1,4 +1,5 @@
 ﻿using System;
+using robot_app.Command;
 
 namespace robot_app
 {
@@ -10,10 +11,14 @@ namespace robot_app
             Console.WriteLine("Hello World!");
         }
 
-        static bool CheckBoundary(Robot current)
+        public static bool CheckBoundary(Robot current)
         {
             var boundary = new Boundary();
-            return current.X < boundary.MaxX && current.Y < boundary.MaxY;
+            return current.X < boundary.MaxX && current.Y < boundary.MaxY 
+                            && current.X >= 0 && current.Y>=0;
         }
+
+        public static bool CheckValidCommand(ICommand command, Robot current) 
+        =>  (command.GetType() == typeof(PlaceCommand) && !current.Placed) || current.Placed;
     }
 }
