@@ -18,11 +18,11 @@ namespace robot_app
             }
         }
 
-        public static bool CheckBoundary(Robot current)
+        public static bool CheckBoundary(int posX, int posY)
         {
             var boundary = new Boundary();
-            return current.X < boundary.MaxX && current.Y < boundary.MaxY 
-                            && current.X >= 0 && current.Y>=0;
+            return posX <= boundary.MaxX && posY <= boundary.MaxY 
+                            && posX >= 0 && posY>=0;
         }
 
         public static bool CheckValidCommand(ICommand command, Robot current) 

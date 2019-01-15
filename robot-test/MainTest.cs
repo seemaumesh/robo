@@ -7,31 +7,29 @@ namespace robot_test
 {
     public class MainTest
     {
-       [Fact]
-       public void CheckValidPos() {
-            var robot = new Robot() { X = 3, Y = 4 };
-            Assert.True(Program.CheckBoundary(robot));
-       }
+        [Fact]
+        public void CheckValidPos()
+        {
+
+            Assert.True(Program.CheckBoundary(3, 4));
+        }
 
         [Fact]
         public void CheckInValidPos()
         {
-            var robot = new Robot() { X = 66, Y = 4 };
-            Assert.False(Program.CheckBoundary(robot));
+            Assert.False(Program.CheckBoundary(66, 4));
         }
 
         [Fact]
         public void CheckInValidBoundaryPos()
         {
-            var robot = new Robot() { X = 5, Y = 5 };
-            Assert.False(Program.CheckBoundary(robot));
+            Assert.True(Program.CheckBoundary(5, 5));
         }
 
         [Fact]
         public void NegativePos()
         {
-            var robot = new Robot() { X = -5, Y = 5 };
-            Assert.False(Program.CheckBoundary(robot));
+            Assert.False(Program.CheckBoundary(-5, 5));
         }
 
         [Fact]

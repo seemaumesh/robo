@@ -5,18 +5,25 @@ namespace robot_app.Command
     {
         public Robot Execute(string command, Robot currentRobot)
         {
-            throw new NotImplementedException();
-        }
-
-        private bool validateInput(string command) {
             var robot = new Robot();
-            
-            string[] inputs = command.Split(" ");
+            int posX = 0, posY = 0;
+            string[] inputs = command.Split(",");
+
             var valid = false;
-            valid = inputs.Length == 4;
-            valid = valid && int.TryParse(inputs[1], out int posX);
-            valid = valid && int.TryParse(inputs[1], out int posY);
-            return valid;
+            valid = inputs.Length == 3;
+            if (valid)
+            {
+                inputs[0] = inputs[0].Substring(inputs[0].IndexOf(' ')).Trim();
+                valid = valid && int.TryParse(inputs[0], out posX);
+                valid = valid && int.TryParse(inputs[1], out posY);
+            }
+            if (valid && Program.CheckBoundary(posX, posY))
+            {
+                robot.Dir = GetDirection(inputs[2]);
+                robot.X = posX;
+                robot.Y = posY;
+            }
+            return robot;
         }
 
         public Face GetDirection(string direction)

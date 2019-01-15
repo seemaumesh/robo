@@ -3,7 +3,7 @@ using robot_app;
 using robot_app.Command;
 namespace robot_test
 {
-    public class CommandTest
+    public class FactoryTest
     {
         [Fact]
         public void PlaceTest()
