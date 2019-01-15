@@ -1,7 +1,7 @@
 ﻿using System;
 namespace robot_app
 {
-    public enum Face { South=0, East=1, West=2, North=3 }
+    public enum Face { South=0, East=1, North=2, West=3 }
 
     public class Robot
     {

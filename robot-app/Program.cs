@@ -11,8 +11,10 @@ namespace robot_app
             while (true) {
                 Console.WriteLine("Input command");
                 var line = Console.ReadLine();
-                Console.WriteLine(line);
-                if(line == "exit") {
+                var command = new InputFactory().GetCommand(line);
+                robot = command.Execute(line, robot);
+                if(line == "Report") {
+                    Console.WriteLine($"{robot.X}, {robot.Y} {robot.Dir}");
                     break;
                 }
             }

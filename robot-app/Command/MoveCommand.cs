@@ -5,22 +5,19 @@ namespace robot_app.Command
     {
         public Robot Execute(string command, Robot currentRobot)
         {
-            int posX=0, posY=0;
+            int posX=currentRobot.X, posY=currentRobot.Y;
             switch (currentRobot.Dir) {
                 case Face.South:
-                    posY = currentRobot.X - 1;
+                    posY = posY - 1;
                     break;
                 case Face.North:
-                    posY = currentRobot.Y + 1;
+                    posY = posY + 1;
                     break;
                 case Face.East:
-                    posX = currentRobot.X + 1;
+                    posX = posX + 1;
                     break;
                 case Face.West:
-                    posX = currentRobot.X - 1;
-                    break;
-                default:
-                    posX = 0; posY = 0;
+                    posX = posX - 1;
                     break;
             }
             if(Program.CheckBoundary(posX, posY)) {

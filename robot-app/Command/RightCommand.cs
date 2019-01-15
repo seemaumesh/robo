@@ -5,7 +5,21 @@ namespace robot_app.Command
     {
         public Robot Execute(string command, Robot currentRobot)
         {
-            currentRobot.Dir = currentRobot.Dir + 1;
+            switch (currentRobot.Dir)
+            {
+                case Face.East:
+                    currentRobot.Dir = Face.South;
+                    break;
+                case Face.South:
+                    currentRobot.Dir = Face.West;
+                    break;
+                case Face.West:
+                    currentRobot.Dir = Face.North;
+                    break;
+                case Face.North:
+                    currentRobot.Dir = Face.East;
+                    break;
+            }
             return currentRobot;
         }
     }
